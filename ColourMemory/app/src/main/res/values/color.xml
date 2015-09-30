@@ -12,5 +12,7 @@
     <color name="ink_blue">#003344</color>
     <color name="gray">#A4A4A4</color>
     <color name="yellow_orange">#FF9900</color>
+    <color name="red">#D63C3C</color>
+    <color name="yellow">#FEFE84</color>
 
 </resources>

@@ -1,5 +1,7 @@
 package com.plex.jlrf.colourmemory;
 
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -9,7 +11,7 @@ import android.view.Window;
 
 import com.plex.jlrf.colourmemory.ui.CardFieldFragment;
 import com.plex.jlrf.colourmemory.ui.CardsNavigator;
-import com.plex.jlrf.colourmemory.ui.HighScoreFragment;
+import com.plex.jlrf.colourmemory.ui.HighScoreActivity;
 import com.plex.jlrf.colourmemory.ui.ScoreDialogFragment;
 
 public class MainActivity extends AppCompatActivity implements CardsNavigator {
@@ -35,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements CardsNavigator {
 
     @Override
     public void navigateToField() {
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
         mFragment = new CardFieldFragment();
         mHandleBackPressed = (HandleBackPressed) mFragment;
         mFragmentManager.popBackStack();
@@ -46,12 +49,8 @@ public class MainActivity extends AppCompatActivity implements CardsNavigator {
 
     @Override
     public void navigateToHighScore() {
-        mFragment = new HighScoreFragment();
-        mHandleBackPressed = (HandleBackPressed) mFragment;
-
-        FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.main_container, mFragment);
-        fragmentTransaction.commit();
+        Intent intent = new Intent(this, HighScoreActivity.class);
+        startActivity(intent);
     }
 
     @Override
@@ -62,10 +61,7 @@ public class MainActivity extends AppCompatActivity implements CardsNavigator {
             fragmentTransaction.remove(prev);
         }
         fragmentTransaction.addToBackStack(null);
-
-        // Create and show the dialog.
         ScoreDialogFragment newFragment = ScoreDialogFragment.newInstance(score);
-
         newFragment.show(fragmentTransaction, ScoreDialogFragment.class.getSimpleName());
     }
 

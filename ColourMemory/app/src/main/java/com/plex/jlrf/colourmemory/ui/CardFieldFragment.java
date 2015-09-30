@@ -1,14 +1,18 @@
 package com.plex.jlrf.colourmemory.ui;
 
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.plex.jlrf.colourmemory.MainActivity;
@@ -95,7 +99,7 @@ public class CardFieldFragment extends BaseFragment implements MainActivity.Hand
         mHighScoreButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                                navigator.showSaveScoreDialog(mScore);
+                //                                navigator.showSaveScoreDialog(mScore);
                 navigator.navigateToHighScore();
             }
         });
@@ -171,30 +175,22 @@ public class CardFieldFragment extends BaseFragment implements MainActivity.Hand
         });
     }
 
-    private LinearLayout createRow(ViewGroup container) {
-        LinearLayout ll = new LinearLayout(this.getContext());
-        ll.setLayoutParams(new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT));
-        ll.setOrientation(LinearLayout.HORIZONTAL);
-        container.addView(ll);
-        return ll;
-    }
 
     private void createField() {
-        LayoutInflater inflater = (LayoutInflater)getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-        LinearLayout container = (LinearLayout) mView.findViewById(R.id.container);
-        for (int i = 0; i < 4; i++) {
-            LinearLayout ll = createRow(container);
-            for (int j = 0; j < 4; j++) {
-                Card card = (Card)inflater.inflate(R.layout.view_card_template, null);
-
-                setCheckedListener(card);
-                ll.addView(card);
-                mCards.add(card);
+        TableLayout tableLayout = (TableLayout)mView.findViewById(R.id.tbl_field);
+        for ( int r = 0; r < tableLayout.getChildCount(); r++){
+            if(tableLayout.getChildAt(r) instanceof TableRow){
+                TableRow tableRow = (TableRow)tableLayout.getChildAt(r);
+                for(int c = 0 ; c < tableRow.getChildCount(); c++ ){
+                    if( tableRow.getChildAt(c) instanceof  Card){
+                        Card card = (Card)tableRow.getChildAt(c);
+                        setCheckedListener(card);
+                        mCards.add(card);
+                    }
+                }
             }
         }
+        Log.i("Cards", "mCards.size()::" + mCards.size());
 
     }
 
@@ -202,6 +198,7 @@ public class CardFieldFragment extends BaseFragment implements MainActivity.Hand
         List<Card> randomCards = new ArrayList<Card>(mCards);
         mCurrentHighScore = mScoreDAO.getHighScore();
         mMatchesNumber = 0;
+        updateScore(0);
 
         int numCards = randomCards.size() - 1;
         int cardId = 1;
@@ -254,6 +251,9 @@ public class CardFieldFragment extends BaseFragment implements MainActivity.Hand
     public void onBackPressed() {
         getActivity().finish();
     }
+
+
+
 
     public enum TypeCard {
         COLOUR_1(R.drawable.colour1),

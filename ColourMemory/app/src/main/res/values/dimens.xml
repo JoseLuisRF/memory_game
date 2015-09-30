@@ -5,8 +5,9 @@
 
     <dimen name="btn_margin">10dp</dimen>
 
-    <dimen name="card_height">30dp</dimen>
-    <dimen name="card_width">20dp</dimen>
+    <dimen name="card_height">100dp</dimen>
+    <dimen name="card_width">50dp</dimen>
+    <dimen name="card_margin">8dp</dimen>
 
 
     <dimen name="popup_height">300dp</dimen>

@@ -15,6 +15,14 @@
         <item name="android:textColor">@color/gray</item>
     </style>
 
+    <style name="Arial.Red">
+        <item name="android:textColor">@color/red</item>
+    </style>
+
+    <style name="Arial.Yellow">
+        <item name="android:textColor">@color/yellow</item>
+    </style>
+
     <style name="Arial.YellowOrange.Bold">
         <item name="android:textStyle">bold</item>
     </style>
