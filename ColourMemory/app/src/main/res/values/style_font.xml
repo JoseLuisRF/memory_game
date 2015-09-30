@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Arial" parent="@android:style/TextAppearance.Medium">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="Arial.YellowOrange">
+        <item name="android:textColor">@color/yellow_orange</item>
+    </style>
+    <style name="Arial.Gray">
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <style name="Arial.YellowOrange.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Arial.YellowOrange.H1">
+        <item name="android:textSize">@dimen/font_size_24</item>
+    </style>
+
+    <style name="Arial.YellowOrange.H1B">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Arial.YellowOrange.H2">
+        <item name="android:textSize">@dimen/font_size_20</item>
+    </style>
+
+    <style name="Arial.YellowOrange.H2B">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Arial.White">
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="Arial.White.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Arial.White.H1">
+        <item name="android:textSize">@dimen/font_size_24</item>
+    </style>
+
+    <style name="Arial.White.H1B">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Arial.White.H2">
+        <item name="android:textSize">@dimen/font_size_20</item>
+    </style>
+
+    <style name="Arial.White.H2B">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Arial.White.Small">
+        <item name="android:textSize">@dimen/font_size_11</item>
+    </style>
+
+</resources>

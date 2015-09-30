@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="btn_green">#6fa623</color>
+    <!-- Used for UI elements that indicate clear primary actions or selectors, fastpass+, and green buttons -->
+    <color name="btn_green_tap">#8cb753</color> <!-- Green button tap state -->
+    <color name="btn_green_inactive">#B7D291</color> <!-- Green button inactive state -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="gray_black">#2E2E2E</color>
+
+    <color name="sky_blue">#408FCD</color>
+    <color name="ink_blue">#003344</color>
+    <color name="gray">#A4A4A4</color>
+    <color name="yellow_orange">#FF9900</color>
+
+</resources>

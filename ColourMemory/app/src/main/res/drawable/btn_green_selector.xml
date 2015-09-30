@@ -1,0 +1,8 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/btn_green_disabled" android:state_enabled="false"/>
+    <item android:drawable="@drawable/btn_green_focused" android:state_pressed="false" android:state_focused="true"/> 
+    <item android:drawable="@drawable/btn_green_pressed" android:state_pressed="true"/>
+    <item android:drawable="@drawable/btn_green_enabled" android:state_enabled="true"/>
+
+</selector>
