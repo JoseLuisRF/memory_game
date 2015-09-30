@@ -3,7 +3,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:padding="8dp">
+                android:padding="@dimen/app_padding">
 
     <FrameLayout
         android:id="@+id/fl_header"
@@ -14,150 +14,144 @@
         <include layout="@layout/view_header"/>
     </FrameLayout>
 
-    <FrameLayout
+
+    <TableLayout
+        android:id="@+id/tbl_field"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/fl_header"
-        android:layout_centerInParent="true">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fl_header">
 
-        <TableLayout
-
-            android:id="@+id/tbl_field"
+        <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            <com.plex.jlrf.colourmemory.model.Card
+                android:layout_width="@dimen/card_width"
+                android:layout_height="@dimen/card_height"
+                android:layout_margin="@dimen/card_margin"
+                android:layout_weight="1"/>
 
-                <com.plex.jlrf.colourmemory.model.Card
-                    android:layout_width="@dimen/card_width"
-                    android:layout_height="@dimen/card_height"
-                    android:layout_margin="@dimen/card_margin"
-                    android:layout_weight="1"/>
+            <com.plex.jlrf.colourmemory.model.Card
+                android:id="@+id/card_2"
+                android:layout_width="@dimen/card_width"
+                android:layout_height="@dimen/card_height"
+                android:layout_margin="@dimen/card_margin"
+                android:layout_weight="1"/>
 
-                <com.plex.jlrf.colourmemory.model.Card
-                    android:id="@+id/card_2"
-                    android:layout_width="@dimen/card_width"
-                    android:layout_height="@dimen/card_height"
-                    android:layout_margin="@dimen/card_margin"
-                    android:layout_weight="1"/>
+            <com.plex.jlrf.colourmemory.model.Card
+                android:id="@+id/card_3"
+                android:layout_width="@dimen/card_width"
+                android:layout_height="@dimen/card_height"
+                android:layout_margin="@dimen/card_margin"
+                android:layout_weight="1"/>
 
-                <com.plex.jlrf.colourmemory.model.Card
-                    android:id="@+id/card_3"
-                    android:layout_width="@dimen/card_width"
-                    android:layout_height="@dimen/card_height"
-                    android:layout_margin="@dimen/card_margin"
-                    android:layout_weight="1"/>
+            <com.plex.jlrf.colourmemory.model.Card
+                android:id="@+id/card_4"
+                android:layout_width="@dimen/card_width"
+                android:layout_height="@dimen/card_height"
+                android:layout_margin="@dimen/card_margin"
+                android:layout_weight="1"/>
+        </TableRow>
 
-                <com.plex.jlrf.colourmemory.model.Card
-                    android:id="@+id/card_4"
-                    android:layout_width="@dimen/card_width"
-                    android:layout_height="@dimen/card_height"
-                    android:layout_margin="@dimen/card_margin"
-                    android:layout_weight="1"/>
-            </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            <com.plex.jlrf.colourmemory.model.Card
+                android:id="@+id/card_5"
+                android:layout_width="@dimen/card_width"
+                android:layout_height="@dimen/card_height"
+                android:layout_margin="@dimen/card_margin"
+                android:layout_weight="1"/>
 
-                <com.plex.jlrf.colourmemory.model.Card
-                    android:id="@+id/card_5"
-                    android:layout_width="@dimen/card_width"
-                    android:layout_height="@dimen/card_height"
-                    android:layout_margin="@dimen/card_margin"
-                    android:layout_weight="1"/>
+            <com.plex.jlrf.colourmemory.model.Card
+                android:id="@+id/card_6"
+                android:layout_width="@dimen/card_width"
+                android:layout_height="@dimen/card_height"
+                android:layout_margin="@dimen/card_margin"
+                android:layout_weight="1"/>
 
-                <com.plex.jlrf.colourmemory.model.Card
-                    android:id="@+id/card_6"
-                    android:layout_width="@dimen/card_width"
-                    android:layout_height="@dimen/card_height"
-                    android:layout_margin="@dimen/card_margin"
-                    android:layout_weight="1"/>
+            <com.plex.jlrf.colourmemory.model.Card
+                android:id="@+id/card_7"
+                android:layout_width="@dimen/card_width"
+                android:layout_height="@dimen/card_height"
+                android:layout_margin="@dimen/card_margin"
+                android:layout_weight="1"/>
 
-                <com.plex.jlrf.colourmemory.model.Card
-                    android:id="@+id/card_7"
-                    android:layout_width="@dimen/card_width"
-                    android:layout_height="@dimen/card_height"
-                    android:layout_margin="@dimen/card_margin"
-                    android:layout_weight="1"/>
+            <com.plex.jlrf.colourmemory.model.Card
+                android:id="@+id/card_8"
+                android:layout_width="@dimen/card_width"
+                android:layout_height="@dimen/card_height"
+                android:layout_margin="@dimen/card_margin"
+                android:layout_weight="1"/>
+        </TableRow>
 
-                <com.plex.jlrf.colourmemory.model.Card
-                    android:id="@+id/card_8"
-                    android:layout_width="@dimen/card_width"
-                    android:layout_height="@dimen/card_height"
-                    android:layout_margin="@dimen/card_margin"
-                    android:layout_weight="1"/>
-            </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            <com.plex.jlrf.colourmemory.model.Card
+                android:id="@+id/card_9"
+                android:layout_width="@dimen/card_width"
+                android:layout_height="@dimen/card_height"
+                android:layout_margin="@dimen/card_margin"
+                android:layout_weight="1"/>
 
-                <com.plex.jlrf.colourmemory.model.Card
-                    android:id="@+id/card_9"
-                    android:layout_width="@dimen/card_width"
-                    android:layout_height="@dimen/card_height"
-                    android:layout_margin="@dimen/card_margin"
-                    android:layout_weight="1"/>
+            <com.plex.jlrf.colourmemory.model.Card
+                android:id="@+id/card_10"
+                android:layout_width="@dimen/card_width"
+                android:layout_height="@dimen/card_height"
+                android:layout_margin="@dimen/card_margin"
+                android:layout_weight="1"/>
 
-                <com.plex.jlrf.colourmemory.model.Card
-                    android:id="@+id/card_10"
-                    android:layout_width="@dimen/card_width"
-                    android:layout_height="@dimen/card_height"
-                    android:layout_margin="@dimen/card_margin"
-                    android:layout_weight="1"/>
+            <com.plex.jlrf.colourmemory.model.Card
+                android:id="@+id/card_11"
+                android:layout_width="@dimen/card_width"
+                android:layout_height="@dimen/card_height"
+                android:layout_margin="@dimen/card_margin"
+                android:layout_weight="1"/>
 
-                <com.plex.jlrf.colourmemory.model.Card
-                    android:id="@+id/card_11"
-                    android:layout_width="@dimen/card_width"
-                    android:layout_height="@dimen/card_height"
-                    android:layout_margin="@dimen/card_margin"
-                    android:layout_weight="1"/>
+            <com.plex.jlrf.colourmemory.model.Card
+                android:id="@+id/card_12"
+                android:layout_width="@dimen/card_width"
+                android:layout_height="@dimen/card_height"
+                android:layout_margin="@dimen/card_margin"
+                android:layout_weight="1"/>
+        </TableRow>
 
-                <com.plex.jlrf.colourmemory.model.Card
-                    android:id="@+id/card_12"
-                    android:layout_width="@dimen/card_width"
-                    android:layout_height="@dimen/card_height"
-                    android:layout_margin="@dimen/card_margin"
-                    android:layout_weight="1"/>
-            </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            <com.plex.jlrf.colourmemory.model.Card
+                android:id="@+id/card_13"
+                android:layout_width="@dimen/card_width"
+                android:layout_height="@dimen/card_height"
+                android:layout_margin="@dimen/card_margin"
+                android:layout_weight="1"/>
 
-                <com.plex.jlrf.colourmemory.model.Card
-                    android:id="@+id/card_13"
-                    android:layout_width="@dimen/card_width"
-                    android:layout_height="@dimen/card_height"
-                    android:layout_margin="@dimen/card_margin"
-                    android:layout_weight="1"/>
+            <com.plex.jlrf.colourmemory.model.Card
+                android:id="@+id/card_14"
+                android:layout_width="@dimen/card_width"
+                android:layout_height="@dimen/card_height"
+                android:layout_margin="@dimen/card_margin"
+                android:layout_weight="1"/>
 
-                <com.plex.jlrf.colourmemory.model.Card
-                    android:id="@+id/card_14"
-                    android:layout_width="@dimen/card_width"
-                    android:layout_height="@dimen/card_height"
-                    android:layout_margin="@dimen/card_margin"
-                    android:layout_weight="1"/>
+            <com.plex.jlrf.colourmemory.model.Card
+                android:id="@+id/card_15"
+                android:layout_width="@dimen/card_width"
+                android:layout_height="@dimen/card_height"
+                android:layout_margin="@dimen/card_margin"
+                android:layout_weight="1"/>
 
-                <com.plex.jlrf.colourmemory.model.Card
-                    android:id="@+id/card_15"
-                    android:layout_width="@dimen/card_width"
-                    android:layout_height="@dimen/card_height"
-                    android:layout_margin="@dimen/card_margin"
-                    android:layout_weight="1"/>
+            <com.plex.jlrf.colourmemory.model.Card
+                android:id="@+id/card_16"
+                android:layout_width="@dimen/card_width"
+                android:layout_height="@dimen/card_height"
+                android:layout_margin="@dimen/card_margin"
+                android:layout_weight="1"/>
+        </TableRow>
+    </TableLayout>
 
-                <com.plex.jlrf.colourmemory.model.Card
-                    android:id="@+id/card_16"
-                    android:layout_width="@dimen/card_width"
-                    android:layout_height="@dimen/card_height"
-                    android:layout_margin="@dimen/card_margin"
-                    android:layout_weight="1"/>
-            </TableRow>
-        </TableLayout>
-
-    </FrameLayout>
 
 </RelativeLayout>

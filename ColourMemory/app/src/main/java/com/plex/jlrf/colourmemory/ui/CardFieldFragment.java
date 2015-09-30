@@ -99,7 +99,6 @@ public class CardFieldFragment extends BaseFragment implements MainActivity.Hand
         mHighScoreButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //                                navigator.showSaveScoreDialog(mScore);
                 navigator.navigateToHighScore();
             }
         });

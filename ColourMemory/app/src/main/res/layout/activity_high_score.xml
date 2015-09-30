@@ -12,8 +12,13 @@
         android:text="@string/title_high_scores"/>
 
     <ListView
+        android:divider="@color/white"
+        android:dividerHeight="2dp"
+        android:background="@drawable/listview_shape"
         android:layout_below="@+id/tv_highscore_title"
         android:id="@+id/lv_scores"
+
+        android:layout_margin="@dimen/activity_vertical_margin"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"></ListView>
 

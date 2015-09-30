@@ -21,6 +21,7 @@ import com.plex.jlrf.colourmemory.model.Score;
  */
 public class ScoreDialogFragment extends DialogFragment {
 
+
     private static final String SCORE_KEY = "SCORE_KEY";
     private static ScoreDialogFragment mInstance = null;
     private Button mSaveButton;
@@ -29,6 +30,7 @@ public class ScoreDialogFragment extends DialogFragment {
     private View mView;
     private ScoreDAO mScoreDAO;
     private int mScore = 0;
+
 
     public static ScoreDialogFragment newInstance(int score) {
         if (mInstance == null) {
@@ -39,6 +41,7 @@ public class ScoreDialogFragment extends DialogFragment {
         mInstance.setArguments(args);
         return mInstance;
     }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -54,12 +57,23 @@ public class ScoreDialogFragment extends DialogFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-//        int height = getResources().getDimensionPixelSize(R.dimen.popup_height);
         mView = inflater.inflate(R.layout.dialog_fragment_save_score, container, false);
-//        getDialog().getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, height);
         setupView();
         setupListener();
         return mView;
+    }
+
+
+    private CardsNavigator mNavigator;
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        try{
+            mNavigator = (CardsNavigator)getActivity();
+        } catch (ClassCastException ex){
+            throw new ClassCastException("Activity must implement CardsNavigator interface");
+        }
+
     }
 
     private void setupView() {
@@ -73,6 +87,7 @@ public class ScoreDialogFragment extends DialogFragment {
             @Override
             public void onClick(View v) {
                 dismiss();
+                mNavigator.navigateToField();
             }
         });
 
@@ -87,6 +102,7 @@ public class ScoreDialogFragment extends DialogFragment {
                 long res = mScoreDAO.inertScore(score);
                 if(res > 0){
                     ScoreDialogFragment.this.dismiss();
+                    mNavigator.navigateToHighScore();
                 }
             }
         });

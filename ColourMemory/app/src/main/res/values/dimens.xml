@@ -8,6 +8,7 @@
     <dimen name="card_height">100dp</dimen>
     <dimen name="card_width">50dp</dimen>
     <dimen name="card_margin">8dp</dimen>
+    <dimen name="app_padding">8dp</dimen>
 
 
     <dimen name="popup_height">300dp</dimen>
