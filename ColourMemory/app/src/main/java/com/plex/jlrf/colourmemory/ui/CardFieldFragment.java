@@ -4,12 +4,10 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -18,6 +16,7 @@ import com.plex.jlrf.colourmemory.R;
 import com.plex.jlrf.colourmemory.db.ScoreDAO;
 import com.plex.jlrf.colourmemory.model.Card;
 import com.plex.jlrf.colourmemory.model.Score;
+import com.plex.jlrf.colourmemory.ui.pattern.BaseFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +25,7 @@ import java.util.Random;
 /**
  * Created by jose.ramos.fernandez on 9/28/15.
  */
-public class CardFieldFragment extends Fragment implements MainActivity.HandleBackPressed{
+public class CardFieldFragment extends BaseFragment implements MainActivity.HandleBackPressed{
 
     //Constants
     private static final int MAX_SELECTABLE_CARDS = 2;
@@ -50,7 +49,6 @@ public class CardFieldFragment extends Fragment implements MainActivity.HandleBa
 
     private TextView mScoreTextView = null;
     private Button mHighScoreButton = null;
-    private View mBlockerView;
 
     private int mScore;
     private int mMatchesNumber = 0;
@@ -92,20 +90,13 @@ public class CardFieldFragment extends Fragment implements MainActivity.HandleBa
     private void setupView(){
         mScoreTextView = (TextView)mView.findViewById(R.id.tv_score);
         updateScore(0);
-        mBlockerView = mView.findViewById(R.id.fl_blocker);
-        mBlockerView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //TODO:do nothing
-            }
-        });
 
         mHighScoreButton = (Button)mView.findViewById(R.id.btn_high_score);
         mHighScoreButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                                navigator.showSaveScoreDialog(mScore);
-//                navigator.navigateToHighScore();
+//                                navigator.showSaveScoreDialog(mScore);
+                navigator.navigateToHighScore();
             }
         });
 
@@ -120,7 +111,7 @@ public class CardFieldFragment extends Fragment implements MainActivity.HandleBa
             updateScore(POINTS_FOR_MATCH);
             mMatchesNumber++;
             for (int i = 0; i < mSelectedCards.length; i++) {
-//                mSelectedCards[i].setEnabled(false);
+                mSelectedCards[i].removeFromSubjectListener();
                 mSelectedCards[i] = null;
             }
         } else {
@@ -133,8 +124,7 @@ public class CardFieldFragment extends Fragment implements MainActivity.HandleBa
         }
 
         mNumTouches = RESET_NUM_TOUCHES;
-        mBlockerView.setVisibility(View.INVISIBLE);
-
+        this.setEnableCards(true);
         if (mMatchesNumber == MAX_MATCHES_NUMBER) {
             if( mCurrentHighScore != null && mCurrentHighScore.getScore() > mScore){
                 randomCards();
@@ -152,7 +142,6 @@ public class CardFieldFragment extends Fragment implements MainActivity.HandleBa
 
     private void setCheckedListener(Card card) {
 
-
         card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -167,17 +156,14 @@ public class CardFieldFragment extends Fragment implements MainActivity.HandleBa
                     }
                 }
 
-                if(mNumTouches == MAX_SELECTABLE_CARDS) {
-                    mBlockerView.setVisibility(View.VISIBLE);
+                if (mNumTouches == MAX_SELECTABLE_CARDS) {
+                    CardFieldFragment.this.setEnableCards(false);
                     mHandler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-
                             validate();
-
                         }
                     }, MAX_TIME_FOR_VISIBILITY);
-
                 }
 
 
@@ -203,6 +189,7 @@ public class CardFieldFragment extends Fragment implements MainActivity.HandleBa
             LinearLayout ll = createRow(container);
             for (int j = 0; j < 4; j++) {
                 Card card = (Card)inflater.inflate(R.layout.view_card_template, null);
+
                 setCheckedListener(card);
                 ll.addView(card);
                 mCards.add(card);
@@ -228,6 +215,7 @@ public class CardFieldFragment extends Fragment implements MainActivity.HandleBa
                 Card card = randomCards.remove(index);
                 card.setUpDrawResourceId(getTypeCardByIndex(cardId));
                 card.setChecked(false);
+                card.setSubjectListener(this);
 
                 numCards--;
             }

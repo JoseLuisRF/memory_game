@@ -2,16 +2,16 @@ package com.plex.jlrf.colourmemory.model;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.widget.ToggleButton;
 
 import com.plex.jlrf.colourmemory.ui.CardFieldFragment.TypeCard;
 import com.plex.jlrf.colourmemory.R;
-import android.view.ViewGroup.LayoutParams;
+import com.plex.jlrf.colourmemory.ui.pattern.BaseFragment;
+import com.plex.jlrf.colourmemory.ui.pattern.Observer;
 
 /**
  * Created by jose.ramos.fernandez on 9/28/15.
  */
-public class Card extends ToggleButton {
+public class Card extends Observer {
 
     private TypeCard upDrawResourceId;
 
@@ -25,11 +25,25 @@ public class Card extends ToggleButton {
         init();
     }
 
+    @Override
+    public void update(boolean state) {
+        this.setEnabled(state);
+    }
+
+    public void setSubjectListener(BaseFragment baseFragment){
+        this.subject = baseFragment;
+        this.subject.attach(this);
+    }
+
+    public void removeFromSubjectListener(){
+        this.subject.dettach(this);
+    }
     private void init() {
         flipDown();
         this.setTextOff(null);
         this.setTextOn(null);
         this.setText(null);
+
     }
 
     public void flipUp(){
