@@ -1,0 +1,15 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context=".MainActivity">
+    <item android:id="@+id/action_create_file"
+          android:title="Create File"
+          android:orderInCategory="100"
+          app:showAsAction="never"/>
+      <item android:id="@+id/action_read_file"
+            android:title="Read File"/>
+
+      <item android:id="@+id/action_async_task"
+            android:title="Execute Asycn Task"/>
+
+</menu>

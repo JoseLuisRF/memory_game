@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">ExameTest</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string-array name="arr_urls">
+        <item>http://developer.android.com/guide/components/fragments.html</item>
+        <item>https://www.youtube.com/watch?v=nMo2x9NI1NY</item>
+        <item>https://www.youtube.com/watch?v=Vnoz5uBEWOA</item>
+        <item>https://www.youtube.com/watch?v=O-hnSlicxV4</item>
+        <item>https://www.youtube.com/watch?v=UV8gpcchzkw</item>
+        <item>https://www.youtube.com/watch?v=T0uO_hXhdG0</item>
+
+    </string-array>
+</resources>
