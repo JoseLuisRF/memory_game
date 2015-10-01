@@ -129,11 +129,12 @@ public class CardFieldFragment extends BaseFragment implements MainActivity.Hand
         mNumTouches = RESET_NUM_TOUCHES;
         this.setEnableCards(true);
         if (mMatchesNumber == MAX_MATCHES_NUMBER) {
+            int points = mScore;
             randomCards();
             if( mCurrentHighScore != null && mCurrentHighScore.getScore() > mScore){
                 return;
             }
-            navigator.showSaveScoreDialog(mScore);
+            navigator.showSaveScoreDialog(points);
         }
 
     }

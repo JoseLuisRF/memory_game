@@ -30,18 +30,14 @@ public class MainActivity extends AppCompatActivity {
     private Context mContext;
 
 
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mContext = this;
-        mTextView = (TextView)this.findViewById(R.id.tv_test);
+        mTextView = (TextView) this.findViewById(R.id.tv_test);
 
-        lvURLs = (ListView)this.findViewById(R.id.lv_urls);
+        lvURLs = (ListView) this.findViewById(R.id.lv_urls);
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
         lvURLs.setAdapter(adapter);
         lvURLs.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -86,10 +82,10 @@ public class MainActivity extends AppCompatActivity {
     String filename = "myfile";
     ArrayAdapter<String> adapter;
 
-    private void exampleCreateFile(){
+    private void exampleCreateFile() {
         String[] arrURLs = getResources().getStringArray(R.array.arr_urls);
         StringBuilder builder = new StringBuilder();
-        for (String s : arrURLs){
+        for (String s : arrURLs) {
             builder.append(s + "\n");
         }
         File file = new File(mContext.getFilesDir(), filename);
@@ -106,9 +102,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void exampleReadFile(){
+    private void exampleReadFile() {
         String yourFilePath = mContext.getFilesDir() + "/" + filename;
-        File myFile = new File( yourFilePath );
+        File myFile = new File(yourFilePath);
         FileInputStream fis = null;
         try {
             fis = new FileInputStream(myFile);
@@ -124,7 +120,6 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-
 
 
     @Override
@@ -146,11 +141,11 @@ public class MainActivity extends AppCompatActivity {
             exampleCreateFile();
             return true;
         }
-        if(id == R.id.action_async_task){
+        if (id == R.id.action_async_task) {
             exampleAsyncTask();
             return true;
         }
-        if(id == R.id.action_read_file){
+        if (id == R.id.action_read_file) {
             exampleReadFile();
         }
 
