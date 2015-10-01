@@ -129,8 +129,8 @@ public class CardFieldFragment extends BaseFragment implements MainActivity.Hand
         mNumTouches = RESET_NUM_TOUCHES;
         this.setEnableCards(true);
         if (mMatchesNumber == MAX_MATCHES_NUMBER) {
+            randomCards();
             if( mCurrentHighScore != null && mCurrentHighScore.getScore() > mScore){
-                randomCards();
                 return;
             }
             navigator.showSaveScoreDialog(mScore);
@@ -139,9 +139,18 @@ public class CardFieldFragment extends BaseFragment implements MainActivity.Hand
     }
 
     private void updateScore(int point) {
-        mScore += point;
+        if(point == 0){
+            mScore = 0;
+        } else {
+            mScore += point;
+        }
+
         mScoreTextView.setText(getString(R.string.score, String.valueOf(mScore)));
     }
+
+
+
+
 
     private void setCheckedListener(Card card) {
 
