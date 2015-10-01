@@ -131,7 +131,7 @@ public class CardFieldFragment extends BaseFragment implements MainActivity.Hand
         if (mMatchesNumber == MAX_MATCHES_NUMBER) {
             int points = mScore;
             randomCards();
-            if( mCurrentHighScore != null && mCurrentHighScore.getScore() > mScore){
+            if( mCurrentHighScore != null && mCurrentHighScore.getScore() > points){
                 return;
             }
             navigator.showSaveScoreDialog(points);
